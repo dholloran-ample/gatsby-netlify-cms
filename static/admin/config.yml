@@ -1,6 +1,6 @@
+local_backend: true
 backend:
-  name: github
-  repo: dholloran-ample/gatsby-netlify-cms
+  name: git-gateway
   branch: master
   commit_messages:
     create: "Create {{collection}} “{{slug}}”"
@@ -125,36 +125,78 @@ collections:
         label: "About"
         name: "about"
         fields:
-          - {
-              label: "Template Key",
-              name: "templateKey",
-              widget: "hidden",
-              default: "about-page",
-            }
-          - { label: "Title", name: "title", widget: "string" }
-          - label: "Page Modules"
-            name: "page-modules"
+          - label: "Template Key"
+            name: "templateKey"
+            widget: "hidden"
+            default: "about-page"
+          - label: "Title"
+            name: "title"
+            widget: "string"
+          - label: "Page Builder Modules"
+            name: "pageBuilder"
             widget: "list"
             fields:
+              - label: "Jumbotron"
+                name: "jumbotron"
+                widget: "object"
+                fields:
+                  - label: "Background Image"
+                    name: "backgroundImage"
+                    widget: "image"
+                    required: true
+                    media_library:
+                      config:
+                        multiple: false
+                  - label: "Header"
+                    name: "header"
+                    required: false
+                    widget: "string"
+                  - label: "Sub-Header"
+                    name: "subHeader"
+                    required: false
+                    widget: "string"
+                  - label: "Inline Image"
+                    name: "inlineImage"
+                    widget: "image"
+                    required: false
+                    media_library:
+                      config:
+                        multiple: false
+                  - label: "Button Label"
+                    required: false
+                    name: "buttonLabel"
+                    widget: "string"
+                  - label: "Button Link"
+                    required: false
+                    name: "buttonLink"
+                    widget: "string"
               - label: "Primary Card"
-                name: "primary-card"
+                name: "primaryCard"
                 widget: "object"
                 fields:
                   - label: "Image"
                     name: "image"
                     widget: "image"
+                    required: false
                     media_library:
                       config:
-                        multiple: true
+                        multiple: false
                   - label: "Label"
                     name: "label"
+                    required: true
                     widget: "string"
                   - label: "Content"
+                    required: false
                     name: "content"
                     widget: "markdown"
                   - label: "CTA Label"
-                    name: "cta-label"
+                    name: "ctaLabel"
                     widget: "string"
+                    required: false
                   - label: "CTA Link"
-                    name: "cta-link"
+                    name: "ctaLink"
                     widget: "string"
+                    required: false
+          - label: "Body"
+            name: "body"
+            widget: "markdown"
