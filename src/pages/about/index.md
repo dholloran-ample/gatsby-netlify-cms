@@ -1,5 +1,6 @@
 ---
 title: Title
+templateKey: about-page
 page-modules:
   - primary-card:
       content: Primary Card content
