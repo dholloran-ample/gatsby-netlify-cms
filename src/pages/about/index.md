@@ -1,6 +1,9 @@
 ---
 templateKey: about-page
 title: About our values
+author:
+  - Making sense of the SCAA’s new Flavor Wheel
+  - 'Just in: small batch of Jamaican Blue Mountain in store next week'
 pageBuilder:
   - jumbotron:
       backgroundImage: /img/chemex.jpg
