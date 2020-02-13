@@ -1,7 +1,8 @@
 local_backend: true
 backend:
-  name: git-gateway
   branch: master
+  name: github
+  repo: dholloran-ample/gatsby-netlify-cms
   commit_messages:
     create: "Create {{collection}} “{{slug}}”"
     update: "Update {{collection}} “{{slug}}”"
@@ -132,6 +133,14 @@ collections:
           - label: "Title"
             name: "title"
             widget: "string"
+          - label: "Relationship Test"
+            name: "author"
+            widget: "relation"
+            collection: "blog"
+            searchFields: ["title"]
+            valueField: "title"
+            displayFields: ["title"]
+            multiple: true
           - label: "Page Builder Modules"
             name: "pageBuilder"
             widget: "list"
